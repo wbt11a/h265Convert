@@ -17,7 +17,6 @@ Requirements:<p>
   4.  Point startConvertScript.sh to convertScript.sh location
     <p>Optionally edit convertScript.sh to include pphb for progress bar, or regular ffmpeg
     <p>Optionally edit convertScript.sh to enable verbose logging or not
-    <p>Optionally edit convertScript.sh to enable progress bar or not.  This requires pphb installation.  See above.
   5.  Let crontab take over.
   
  Note:  The process will suspend if Plex Transcoder is running.  This can obviously be modified to detect other applications that should have priority.
