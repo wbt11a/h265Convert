@@ -1,7 +1,8 @@
 # h265Convert
-BASH Scripts to Convert Libraries to H265
-* * * * * /home/beaty/h265Scripts/startConvertScript.sh
+#BASH Scripts to Convert Libraries to H265
+
 Requirements:
+
   -Linux
   -ffmpeg that has x265 libraries installed
   -Basic BASH knowledge
