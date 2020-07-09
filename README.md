@@ -1,5 +1,5 @@
 # h265Convert
-#BASH Scripts to Convert Libraries to H265
+#BASH Scripts to Convert Plex Libraries to H265 painlessly
 
 Requirements:<p>
   -Linux<p>
@@ -19,6 +19,5 @@ Requirements:<p>
     <p>Optionally edit convertScript.sh to enable verbose logging or not
   5.  Let crontab take over.
   
- Note:  The process will suspend if Plex Transcoder is running.  This can obviously be modified to detect other applications that should have priority.
- 
  The script will convert all subdirectories and move the completed file into the prior files location, while moving the non-265 file into h265files/.
+ The process will suspend if Plex Transcoder is running.  This can obviously be modified to detect other applications that should have priority.
