@@ -7,7 +7,7 @@ Requirements:<p>
   -Basic BASH knowledge<p>
   
  Optional:
-  -pip install pphb if you want progress bars
+  -pip install ffpb if you want progress bars; otherwise comment out ffpb and uncomment ffmpeg in convertScript
  
  
  Steps to Work:
