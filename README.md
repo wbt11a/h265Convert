@@ -15,8 +15,9 @@ Requirements:<p>
   2.  Put * * * * * /home/beaty/h265Scripts/startConvertScript.sh in crontab
   3.  Put convertScript.sh in root directory of files to be converted
   4.  Point startConvertScript.sh to convertScript.sh location
-    <p>Optionally edit convertScript.sh to include pphb for progress bar, or regular ffmpeg
+    <p>Optionally edit convertScript.sh to include ffpb for progress bar, or regular ffmpeg
     <p>Optionally edit convertScript.sh to enable verbose logging or not
+    <p>Change CRF value if you desire (default at 22)
   5.  Let crontab take over.
   
  The script will convert all subdirectories and move the completed file into the prior files location, while moving the non-265 file into h265files/.
