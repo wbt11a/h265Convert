@@ -17,10 +17,10 @@ Requirements:<p>
  
  
  Steps to Work:
-  1.  Download scripts
-  2.  Put * * * * * /home/beaty/h265Scripts/startConvertScript.sh in crontab
-  3.  Put convertScript.sh in root directory of files to be converted
-  4.  Point startConvertScript.sh to convertScript.sh location
+  1.  Download scripts.
+  2.  Put * * * * * /home/beaty/h265Scripts/startConvertScript.sh in crontab.
+  3.  Put convertScript.sh in root directory of files to be converted.
+  4.  Change <i>PROCESS_PATH</i> in startConvertScript.sh to point to convertScript.sh location.
     <p>Optionally edit convertScript.sh to include ffpb for progress bar, or regular ffmpeg
     <p>Optionally edit convertScript.sh to enable verbose logging or not
     <p>Change CRF value if you desire (default at 22)
