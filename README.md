@@ -13,7 +13,7 @@ Requirements:<p>
   -Basic BASH knowledge<p>
   
  Optional:
-  -pip install ffpb if you want progress bars; otherwise comment out ffpb and uncomment ffmpeg in convertScript
+  <i>pip install ffpb</i> if you want progress bars; otherwise comment out ffpb and uncomment ffmpeg in convertScript.sh
  
  
  Steps to Work:
