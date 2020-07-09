@@ -16,7 +16,7 @@ if [ -f "$outputDir/completed.lock" ]; then
         exit 0
 fi
 
-for f in `find . -type f -name "*.avi" -o -name "*.mp4" -o -name "*.mkv"`;
+for f in `find . -type f -name "*.avi" -o -name "*.mp4" -o -name "*.mkv" -not -path ${PROCESS_PATH}${outputDir}`;
 do
         audioformat=$(ffprobe -loglevel error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$f")
         videoformat=$(ffprobe -loglevel error -select_streams v:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$f")
@@ -33,8 +33,10 @@ do
                 /usr/local/bin/ffpb -y -i "$f" -c:v libx265 -x265-params crf="$CRF" -c:a aac "$PROCESS_PATH""$outputDir"/"${MYFILE%.*}.x265.mkv"
         fi
 
-        mv "$PROCESS_PATH""$outputDir"/"${MYFILE%.*}.x265.mkv" $(basename)
-        mv $(basename "$f") "$PROCESS_PATH""$outputDir"
+        echo "running mv ${PROCESS_PATH}${outputDir}/${MYFILE%.*}.x265.mkv" $(dirname "$f")
+        mv "$PROCESS_PATH""$outputDir/""${MYFILE%.*}.x265.mkv" $(dirname "$f")
+        echo "running mv ${f} ${PROCESS_PATH}${outputDir}"
+        mv "$f" "$PROCESS_PATH""$outputDir"
 done
 touch "$outputDir/completed.lock"
 IFS=$SAVEIFS
