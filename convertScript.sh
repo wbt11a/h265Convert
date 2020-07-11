@@ -3,7 +3,7 @@
 
 outputDir="h265vids"
 CRF="22"
-PROCESS_PATH="/plex/plex/adult/tv/"
+PROCESS_PATH="/plex/plex/adult/tv/" #MAKE SURE TO INCLUDE TRAILING /
 cd "$PROCESS_PATH"
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
