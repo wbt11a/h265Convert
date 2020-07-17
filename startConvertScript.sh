@@ -3,7 +3,7 @@
 
 PID_OF_PROCESS=$(ps ax | grep [f]fmpeg | awk '{print $1}')
 PLEX_TRANSCODER=$(ps ax | grep [T]ranscoder | awk '{print $1}')
-PROCESS_PATH="/plex/plex/adult/tv/convertScript.sh"
+PROCESS_PATH="/opt/downloads/Dark/convertScript.sh"
 PID_OF_LAUNCHER=$(ps ax | grep [t]estScript | awk '{print $1}')
 LOGGING="on"
 PROGRESS="on"
@@ -20,10 +20,12 @@ if [ -z "$PID_OF_PROCESS" ] && [ -z "$PID_OF_LAUNCHER" ]; then
         if [ "$LOGGING" == "on" ]; then
                 echo $(date) " - ffmpeg not running; starting work" >> runLog.txt
         fi
+
         if [ "$LOGGING" == "on" ]; then
-                /bin/bash "$PROCESS_PATH" >> runLog.txt 2>&1
+                echo "creating lockfile at " $(dirname "$PROCESS_PATH")/start_lock.lock >> runLog.txt
+                flock -n $(dirname "$PROCESS_PATH")/start_lock.lock /bin/bash "$PROCESS_PATH" >> runLog.txt 2>&1 || exit 1
         else
-                /bin/bash "$PROCESS_PATH" >> /dev/null 2>&1
+                flock -n $(dirname "$PROCESS_PATH")/start_lock.lock /bin/bash "$PROCESS_PATH" >> /dev/null 2>&1 || exit 1
         fi
 
 else
@@ -43,3 +45,6 @@ else
                 exit 0
         fi
 fi
+
+
+rm $(dirname "$PROCESS_PATH")/start_lock.lock
