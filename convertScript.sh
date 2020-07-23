@@ -5,7 +5,7 @@ outputDir="./h265vids/"
 CRF="22"
 FILE_TYPES=("avi" "mp4" "mkv")
 PROCESS_PATH="/plex/plex/adult/tv/" #MAKE SURE YOU HAVE / AT END
-EXCLUDE_DIRS=("./Greatest Events of WWII in Colour/")
+EXCLUDE_DIRS=("./Greatest Events of WWII in Colour/" "./NewGirl/Season 3/")
 cd "$PROCESS_PATH"
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
@@ -82,11 +82,11 @@ do
 		myDir=$(dirname "$f")
 		NEWFILESIZE=$(stat -c%s "${outputDir}${MYFILE%.*}.x265.mkv")
 		echo "New filesize: ${NEWFILESIZE}"
-		CMD="mv ${outputDir}${MYFILE%.*}.x265.mkv \"${myDir}\""
+		CMD="mv \"${outputDir}${MYFILE%.*}.x265.mkv\" \"${myDir}\""
 		echo "Running ${CMD}"
 		eval "$CMD"
 		#  mv "$PROCESS_PATH""$outputDir/""${MYFILE%.*}.x265.mkv" $(dirname "$f")
-		CMD="mv \"${f}\" ${outputDir}"
+		CMD="mv \"${f}\" \"${outputDir}\""
 		echo "Running ${CMD}"
 		eval "$CMD"
 
